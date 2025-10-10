@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hokkaido Synchro - Planejamento & Eficiência</title>
+    <title>Hokkaido Synchro - Planeamento & Eficiência</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -65,43 +65,64 @@
             #print-title-bar {
                 display: flex !important;
             }
+
+            /* --- ESTILOS PARA A TABELA HORIZONTAL --- */
             #summary-table {
-                font-size: 6.5pt;
+                font-size: 6pt;
                 width: 100%;
                 border-collapse: collapse;
                 table-layout: fixed; 
             }
-            #summary-table th, #summary-table td {
+
+            /* Estilo para Células de DADOS: sem quebra de linha */
+            #summary-table td {
                 border: 1px solid #ccc;
-                padding: 1.5px 2px;
+                padding: 2px;
                 text-align: center;
                 white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;
+                vertical-align: middle; 
             }
-            #summary-table th:nth-child(1), #summary-table td:nth-child(1) { width: 3.5%; }
-            #summary-table th:nth-child(2), #summary-table td:nth-child(2) { width: 15%; text-align: left; white-space: normal; }
-            #summary-table th:nth-child(3), #summary-table td:nth-child(3) { width: 4%; }
-            #summary-table th:nth-child(4), #summary-table td:nth-child(4) { width: 3%; }
-            #summary-table th:nth-child(5), #summary-table td:nth-child(5) { width: 4%; }
-            #summary-table th:nth-child(6), #summary-table td:nth-child(6) { width: 4%; }
-            #summary-table th:nth-child(7), #summary-table td:nth-child(7) { width: 3%; }
-            #summary-table th:nth-child(8), #summary-table td:nth-child(8) { width: 5%; }
-            #summary-table th:nth-child(9), #summary-table td:nth-child(9) { width: 4.5%; }
-            #summary-table th:nth-child(10), #summary-table td:nth-child(10) { width: 4.5%; }
-            #summary-table th:nth-child(11), #summary-table td:nth-child(11) { width: 4%; }
-            #summary-table th:nth-child(12), #summary-table td:nth-child(12) { width: 3%; }
-            #summary-table th:nth-child(13), #summary-table td:nth-child(13) { width: 5%; }
-            #summary-table th:nth-child(14), #summary-table td:nth-child(14) { width: 4.5%; }
-            #summary-table th:nth-child(15), #summary-table td:nth-child(15) { width: 4.5%; }
-            #summary-table th:nth-child(16), #summary-table td:nth-child(16) { width: 4%; }
-            #summary-table th:nth-child(17), #summary-table td:nth-child(17) { width: 3%; }
-            #summary-table th:nth-child(18), #summary-table td:nth-child(18) { width: 5%; }
-            #summary-table th:nth-child(19), #summary-table td:nth-child(19) { width: 4.5%; }
-            #summary-table th:nth-child(20), #summary-table td:nth-child(20) { width: 4.5%; }
-            #summary-table th:nth-child(21), #summary-table td:nth-child(21) { width: 5%; font-weight: bold; }
-            #summary-table th:nth-child(22), #summary-table td:nth-child(22) { width: 3.5%; }
+
+            /* Estilo para Células de CABEÇALHO: com quebra de linha */
+            #summary-table th {
+                border: 1px solid #ccc;
+                padding: 2px;
+                text-align: center;
+                white-space: normal; /* Permite que TODOS os cabeçalhos quebrem a linha */
+                vertical-align: middle; 
+            }
             
+            /* Exceção para a célula de dados do Produto, que pode quebrar a linha */
+            #summary-table td:nth-child(2) { 
+                text-align: left; 
+                white-space: normal; 
+            }
+
+            /* --- LARGURA DAS COLUNAS (AJUSTADA) --- */
+            #summary-table th:nth-child(1), #summary-table td:nth-child(1) { width: 1%; }
+            #summary-table th:nth-child(2), #summary-table td:nth-child(2) { width: 6.5%; }
+            #summary-table th:nth-child(3), #summary-table td:nth-child(3) { width: 5%; }
+            #summary-table th:nth-child(4), #summary-table td:nth-child(4) { width: 5%; }
+            #summary-table th:nth-child(5), #summary-table td:nth-child(5) { width: 5%; }
+            #summary-table th:nth-child(6), #summary-table td:nth-child(6) { width: 5%; }
+            #summary-table th:nth-child(7), #summary-table td:nth-child(7) { width: 5%; }
+            #summary-table th:nth-child(8), #summary-table td:nth-child(8) { width: 5.5%; } 
+            #summary-table th:nth-child(9), #summary-table td:nth-child(9) { width: 5.5%; }
+            #summary-table th:nth-child(10), #summary-table td:nth-child(10) { width: 5%; }
+            #summary-table th:nth-child(11), #summary-table td:nth-child(11) { width: 5%; }
+            #summary-table th:nth-child(12), #summary-table td:nth-child(12) { width: 5%; }
+            #summary-table th:nth-child(13), #summary-table td:nth-child(13) { width: 5.5%; }
+            #summary-table th:nth-child(14), #summary-table td:nth-child(14) { width: 5.5%; }
+            #summary-table th:nth-child(15), #summary-table td:nth-child(15) { width: 5%; }
+            #summary-table th:nth-child(16), #summary-table td:nth-child(16) { width: 5%; }
+            #summary-table th:nth-child(17), #summary-table td:nth-child(17) { width: 5%; }
+            #summary-table th:nth-child(18), #summary-table td:nth-child(18) { width: 5.5%; }
+            #summary-table th:nth-child(19), #summary-table td:nth-child(19) { width: 5.5%; }
+            #summary-table th:nth-child(20), #summary-table td:nth-child(20) { width: 5%; }
+            
+            /* Cores para impressão */
             .bg-sky-100 { background-color: #e0f2fe !important; }
             .bg-amber-100 { background-color: #fef3c7 !important; }
             .bg-indigo-100 { background-color: #e0e7ff !important; }
@@ -123,7 +144,7 @@
         
         <header class="text-center mb-8 no-print pt-8">
             <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 bg-clip-text text-transparent bg-gradient-to-r from-cyan-600 to-blue-500">Hokkaido Synchro</h1>
-            <p class="text-lg text-slate-600 font-medium mt-1">Planeamento & Eficiência v5.0</p>
+            <p class="text-lg text-slate-600 font-medium mt-1">Planeamento & Eficiência v5.5</p>
         </header>
         
         <div class="flex flex-col md:flex-row justify-between items-center mb-6 p-4 bg-white rounded-lg shadow-md no-print">
@@ -205,38 +226,36 @@
             </div>
             <div class="overflow-x-auto pt-4">
                 <table id="summary-table" class="w-full text-sm text-left text-slate-500">
-                     <thead class="text-xs text-slate-700 uppercase bg-slate-200">
-                        <tr>
-                            <th scope="col" rowspan="2" class="px-2 py-2 border border-slate-300">Máq.</th>
-                            <th scope="col" rowspan="2" class="px-2 py-2 border border-slate-300">Produto</th>
-                            <th scope="col" colspan="3" class="px-2 py-2 text-center border border-slate-300">Planeado</th>
-                            <th scope="col" colspan="5" class="px-2 py-2 text-center border border-slate-300 bg-sky-100">1º Turno</th>
-                            <th scope="col" colspan="5" class="px-2 py-2 text-center border border-slate-300 bg-amber-100">2º Turno</th>
-                            <th scope="col" colspan="5" class="px-2 py-2 text-center border border-slate-300 bg-indigo-100">3º Turno</th>
-                            <th scope="col" rowspan="2" class="px-2 py-2 border border-slate-300 bg-slate-300">Total</th>
-                            <th scope="col" rowspan="2" class="px-2 py-2 border border-slate-300">Máq.</th>
-                        </tr>
-                        <tr>
-                            <th scope="col" class="px-2 py-2 text-center border border-slate-300">Ciclo</th>
-                            <th scope="col" class="px-2 py-2 text-center border border-slate-300">Cav.</th>
-                            <th scope="col" class="px-2 py-2 text-center border border-slate-300">Peso</th>
-                            <th scope="col" class="px-2 py-2 text-center border border-slate-300 bg-sky-100 turno-ciclo">Ciclo Real</th>
-                            <th scope="col" class="px-2 py-2 text-center border border-slate-300 bg-sky-100 turno-cav">Cav. Real</th>
-                            <th scope="col" class="px-2 py-2 text-center border border-slate-300 bg-sky-100 turno-qtd">Qtd.</th>
-                            <th scope="col" class="px-2 py-2 text-center border border-slate-300 bg-sky-100 turno-ef-maq">Ef. Máquina</th>
-                            <th scope="col" class="px-2 py-2 text-center border border-slate-300 bg-sky-100 turno-ef-mol">Ef. Molde</th>
-                            <th scope="col" class="px-2 py-2 text-center border border-slate-300 bg-amber-100 turno-ciclo">Ciclo Real</th>
-                            <th scope="col" class="px-2 py-2 text-center border border-slate-300 bg-amber-100 turno-cav">Cav. Real</th>
-                            <th scope="col" class="px-2 py-2 text-center border border-slate-300 bg-amber-100 turno-qtd">Qtd.</th>
-                            <th scope="col" class="px-2 py-2 text-center border border-slate-300 bg-amber-100 turno-ef-maq">Ef. Máquina</th>
-                            <th scope="col" class="px-2 py-2 text-center border border-slate-300 bg-amber-100 turno-ef-mol">Ef. Molde</th>
-                            <th scope="col" class="px-2 py-2 text-center border border-slate-300 bg-indigo-100 turno-ciclo">Ciclo Real</th>
-                            <th scope="col" class="px-2 py-2 text-center border border-slate-300 bg-indigo-100 turno-cav">Cav. Real</th>
-                            <th scope="col" class="px-2 py-2 text-center border border-slate-300 bg-indigo-100 turno-qtd">Qtd.</th>
-                            <th scope="col" class="px-2 py-2 text-center border border-slate-300 bg-indigo-100 turno-ef-maq">Ef. Máquina</th>
-                            <th scope="col" class="px-2 py-2 text-center border border-slate-300 bg-indigo-100 turno-ef-mol">Ef. Molde</th>
-                        </tr>
-                    </thead>
+                         <thead class="text-xs text-slate-700 uppercase bg-slate-200">
+                             <tr>
+                                 <th scope="col" rowspan="2" class="px-2 py-2 border border-slate-300">Máq.</th>
+                                 <th scope="col" rowspan="2" class="px-2 py-2 border border-slate-300">Produto</th>
+                                 <th scope="col" colspan="3" class="px-2 py-2 text-center border border-slate-300">Planeado</th>
+                                 <th scope="col" colspan="5" class="px-2 py-2 text-center border border-slate-300 bg-sky-100">1º Turno</th>
+                                 <th scope="col" colspan="5" class="px-2 py-2 text-center border border-slate-300 bg-amber-100">2º Turno</th>
+                                 <th scope="col" colspan="5" class="px-2 py-2 text-center border border-slate-300 bg-indigo-100">3º Turno</th>
+                             </tr>
+                             <tr>
+                                 <th scope="col" class="px-2 py-2 text-center border border-slate-300">Ciclo</th>
+                                 <th scope="col" class="px-2 py-2 text-center border border-slate-300">Cav.</th>
+                                 <th scope="col" class="px-2 py-2 text-center border border-slate-300">Peso</th>
+                                 <th scope="col" class="px-2 py-2 text-center border border-slate-300 bg-sky-100 turno-ciclo">Ciclo<br>Real</th>
+                                 <th scope="col" class="px-2 py-2 text-center border border-slate-300 bg-sky-100 turno-cav">Cav.<br>Real</th>
+                                 <th scope="col" class="px-2 py-2 text-center border border-slate-300 bg-sky-100 turno-qtd">Qtd.</th>
+                                 <th scope="col" class="px-2 py-2 text-center border border-slate-300 bg-sky-100 turno-ef-maq">Ef.<br>Máq</th>
+                                 <th scope="col" class="px-2 py-2 text-center border border-slate-300 bg-sky-100 turno-ef-mol">Ef.<br>Mold</th>
+                                 <th scope="col" class="px-2 py-2 text-center border border-slate-300 bg-amber-100 turno-ciclo">Ciclo<br>Real</th>
+                                 <th scope="col" class="px-2 py-2 text-center border border-slate-300 bg-amber-100 turno-cav">Cav.<br>Real</th>
+                                 <th scope="col" class="px-2 py-2 text-center border border-slate-300 bg-amber-100 turno-qtd">Qtd.</th>
+                                 <th scope="col" class="px-2 py-2 text-center border border-slate-300 bg-amber-100 turno-ef-maq">Ef.<br>Máq</th>
+                                 <th scope="col" class="px-2 py-2 text-center border border-slate-300 bg-amber-100 turno-ef-mol">Ef.<br>Mold</th>
+                                 <th scope="col" class="px-2 py-2 text-center border border-slate-300 bg-indigo-100 turno-ciclo">Ciclo<br>Real</th>
+                                 <th scope="col" class="px-2 py-2 text-center border border-slate-300 bg-indigo-100 turno-cav">Cav.<br>Real</th>
+                                 <th scope="col" class="px-2 py-2 text-center border border-slate-300 bg-indigo-100 turno-qtd">Qtd.</th>
+                                 <th scope="col" class="px-2 py-2 text-center border border-slate-300 bg-indigo-100 turno-ef-maq">Ef.<br>Máq</th>
+                                 <th scope="col" class="px-2 py-2 text-center border border-slate-300 bg-indigo-100 turno-ef-mol">Ef.<br>Mold</th>
+                             </tr>
+                         </thead>
                     <tbody></tbody>
                 </table>
             </div>
@@ -396,8 +415,8 @@
             } catch (error) {
                 console.error("Erro em loadData:", error);
                 showToast(`Erro ao carregar dados: ${error.message}. Verifique a consola (F12) para mais detalhes.`, 'error');
-                appData = []; // Garante que a interface limpe se houver erro
-                renderAll(); // Renderiza a interface vazia
+                appData = [];
+                renderAll();
             } finally {
                 showLoading(false);
             }
@@ -407,8 +426,6 @@
             saveStatus.innerHTML = `<i data-lucide="save" class="w-4 h-4 animate-spin mr-1"></i> A salvar...`;
             lucide.createIcons();
             try {
-                // O 'upsert' precisa saber qual a coluna de conflito para não duplicar. 
-                // Se o item já tem 'id', ele atualiza; senão, insere.
                 const { error } = await supabaseClient.from('production_plan').upsert(item);
                 if (error) throw error;
                  saveStatus.innerHTML = `<i data-lucide="check-circle-2" class="w-4 h-4 text-green-600 mr-1"></i> Salvo`;
@@ -418,7 +435,7 @@
                 console.error("Erro ao salvar:", error);
                 showToast(`Erro ao salvar: ${error.message}`, 'error');
                 saveStatus.innerHTML = '';
-                throw error; // Propaga o erro para o listener do formulário
+                throw error;
             }
         }
 
@@ -584,10 +601,10 @@
                 const product = removeBtn.dataset.product;
                 showConfirm(`Deseja remover "${product}" do planeamento?`, async () => {
                      try {
-                        const { error } = await supabaseClient.from('production_plan').delete().eq('id', id);
-                        if(error) throw error;
+                         const { error } = await supabaseClient.from('production_plan').delete().eq('id', id);
+                         if(error) throw error;
                      } catch(error) {
-                        showToast(`Erro ao remover: ${error.message}`, 'error');
+                         showToast(`Erro ao remover: ${error.message}`, 'error');
                      }
                 });
             }
@@ -599,7 +616,7 @@
             }
         });
 
-        // --- FUNÇÕES DE RENDERIZAÇÃO (MAIS ROBUSTAS) ---
+        // --- FUNÇÕES DE RENDERIZAÇÃO ---
         function renderAll() {
             try { renderPlanningList(); } catch(e) { console.error("Erro em renderPlanningList:", e); }
             try { renderLaunchPanel(); } catch(e) { console.error("Erro em renderLaunchPanel:", e); }
@@ -621,13 +638,13 @@
             planningList.innerHTML = sortedData.length === 0 ? `<p class="text-slate-500 text-sm">Nenhum item planeado.</p>` : '';
             if(sortedData.length > 0) {
                 sortedData.forEach(item => {
-                    if (!item || !item.id) return; // Pula linhas inválidas
+                    if (!item || !item.id) return;
                     const div = document.createElement('div');
                     div.className = 'flex justify-between items-center bg-slate-100 p-2 rounded';
                     div.innerHTML = `<div><span class="font-semibold">${item.machine || ''}</span> - <span class="truncate">${item.product || ''}</span></div>
-                                    <button class="remove-item-btn text-red-500 hover:text-red-700" data-id="${item.id}" data-product="${item.product || ''}">
-                                        <i data-lucide="trash-2" class="w-4 h-4"></i>
-                                    </button>`;
+                                     <button class="remove-item-btn text-red-500 hover:text-red-700" data-id="${item.id}" data-product="${item.product || ''}">
+                                         <i data-lucide="trash-2" class="w-4 h-4"></i>
+                                     </button>`;
                     planningList.appendChild(div);
                 });
             }
@@ -638,19 +655,19 @@
             launchPanel.innerHTML = sortedData.length === 0 ? `<div class="col-span-full text-center text-slate-500"><p>Adicione itens no painel de planeamento.</p></div>` : '';
             if(sortedData.length > 0) {
                 sortedData.forEach(item => {
-                    if (!item || !item.id) return; // Pula linhas inválidas
+                    if (!item || !item.id) return;
                     const card = document.createElement('div');
                     const turnos = item.turnos || {};
                     card.className = 'bg-slate-50 border border-slate-200 p-4 rounded-lg shadow';
                     const turnoBtnClass = (tData) => tData && tData.realCycle ? 'bg-green-600 hover:bg-green-700' : 'bg-cyan-600 hover:bg-cyan-700';
                     const turnoIcon = (tData) => tData && tData.realCycle ? '<i data-lucide="check" class="w-4 h-4 mr-1"></i>' : '';
                     card.innerHTML = `<h4 class="font-bold text-lg">${item.machine || ''}</h4>
-                                    <p class="text-slate-600 mb-3 truncate" title="${item.product || ''}">${item.product || ''}</p>
-                                    <div class="grid grid-cols-3 gap-2">
-                                        <button class="turno-btn text-white text-sm font-bold py-2 px-3 rounded transition-colors flex items-center justify-center ${turnoBtnClass(turnos['1'])}" data-id="${item.id}" data-turno="1">${turnoIcon(turnos['1'])} 1º Turno</button>
-                                        <button class="turno-btn text-white text-sm font-bold py-2 px-3 rounded transition-colors flex items-center justify-center ${turnoBtnClass(turnos['2'])}" data-id="${item.id}" data-turno="2">${turnoIcon(turnos['2'])} 2º Turno</button>
-                                        <button class="turno-btn text-white text-sm font-bold py-2 px-3 rounded transition-colors flex items-center justify-center ${turnoBtnClass(turnos['3'])}" data-id="${item.id}" data-turno="3">${turnoIcon(turnos['3'])} 3º Turno</button>
-                                    </div>`;
+                                      <p class="text-slate-600 mb-3 truncate" title="${item.product || ''}">${item.product || ''}</p>
+                                      <div class="grid grid-cols-3 gap-2">
+                                          <button class="turno-btn text-white text-sm font-bold py-2 px-3 rounded transition-colors flex items-center justify-center ${turnoBtnClass(turnos['1'])}" data-id="${item.id}" data-turno="1">${turnoIcon(turnos['1'])} 1º Turno</button>
+                                          <button class="turno-btn text-white text-sm font-bold py-2 px-3 rounded transition-colors flex items-center justify-center ${turnoBtnClass(turnos['2'])}" data-id="${item.id}" data-turno="2">${turnoIcon(turnos['2'])} 2º Turno</button>
+                                          <button class="turno-btn text-white text-sm font-bold py-2 px-3 rounded transition-colors flex items-center justify-center ${turnoBtnClass(turnos['3'])}" data-id="${item.id}" data-turno="3">${turnoIcon(turnos['3'])} 3º Turno</button>
+                                      </div>`;
                     launchPanel.appendChild(card);
                 });
             }
@@ -658,10 +675,10 @@
         
         function renderSummaryTable() {
             const sortedData = getSortedPlanning();
-            summaryTableBody.innerHTML = sortedData.length === 0 ? `<tr><td colspan="23" class="text-center p-4 text-slate-500">Nenhum dado para exibir.</td></tr>` : '';
+            summaryTableBody.innerHTML = sortedData.length === 0 ? `<tr><td colspan="20" class="text-center p-4 text-slate-500">Nenhum dado para exibir.</td></tr>` : '';
             if(sortedData.length > 0) {
                 sortedData.forEach(item => {
-                    if (!item || !item.id) return; // Pula linhas inválidas
+                    if (!item || !item.id) return;
                     const row = document.createElement('tr');
                     const turnos = item.turnos || {};
                     row.className = 'bg-white border-b';
@@ -675,19 +692,17 @@
                         const qtyDisplay = (typeof turnoData.qty === 'number') ? turnoData.qty.toLocaleString('pt-BR') : '-';
 
                         turnosHtml += `<td class="px-2 py-2 text-center border ${cycleClass(turnoData?.realCycle, item.budgeted_cycle)}">${turnoData?.realCycle || '-'}</td>
-                                    <td class="px-2 py-2 text-center border">${turnoData?.realCavities || '-'}</td>
-                                    <td class="px-2 py-2 text-center border">${qtyDisplay}</td>
-                                    <td class="px-2 py-2 text-center border">${machineEff}</td>
-                                    <td class="px-2 py-2 text-center border">${moldEff}</td>`;
+                                       <td class="px-2 py-2 text-center border">${turnoData?.realCavities || '-'}</td>
+                                       <td class="px-2 py-2 text-center border">${qtyDisplay}</td>
+                                       <td class="px-2 py-2 text-center border">${machineEff}</td>
+                                       <td class="px-2 py-2 text-center border">${moldEff}</td>`;
                     }
                     row.innerHTML = `<td class="px-4 py-2 border">${item.machine || ''}</td>
-                                    <td class="px-4 py-2 border">${item.product || ''}</td>
-                                    <td class="px-2 py-2 text-center border">${item.budgeted_cycle || ''}</td>
-                                    <td class="px-2 py-2 text-center border">${item.mold_cavities || ''}</td>
-                                    <td class="px-2 py-2 text-center border">${item.piece_weight || ''}</td>
-                                    ${turnosHtml}
-                                    <td class="px-4 py-2 border font-bold bg-slate-100">${totalQty.toLocaleString('pt-BR')}</td>
-                                    <td class="px-4 py-2 border">${item.machine || ''}</td>`;
+                                     <td class="px-4 py-2 border">${item.product || ''}</td>
+                                     <td class="px-2 py-2 text-center border">${item.budgeted_cycle || ''}</td>
+                                     <td class="px-2 py-2 text-center border">${item.mold_cavities || ''}</td>
+                                     <td class="px-2 py-2 text-center border">${item.piece_weight || ''}</td>
+                                     ${turnosHtml}`;
                     summaryTableBody.appendChild(row);
                 });
             }
@@ -744,4 +759,5 @@
     </script>
 </body>
 </html>
+
 
